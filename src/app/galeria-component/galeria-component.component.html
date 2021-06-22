@@ -1,0 +1,21 @@
+<h1>{{ titulo }}</h1>
+<div *ngIf="fotos.length">
+  <div class="foto"></div>
+  <img [src]="fotos[fotoAtual]" />
+  <div>
+    Foto {{ fotoAtual + 1 }} de {{ fotos.length }}
+    <button [disabled]="fotoAtual == primeira" (click)="vaiParaFoto(primeira)">
+      Primeira
+    </button>
+    <button [disabled]="fotoAtual == primeira" (click)="avancaFoto(-1)">
+      Anterior
+    </button>
+    <button [disabled]="fotoAtual == ultima" (click)="avancaFoto(1)">
+      Próxima
+    </button>
+    <button [disabled]="fotoAtual == ultima" (click)="vaiParaFoto(ultima)">
+      Última
+    </button>
+  </div>
+</div>
+<div *ngIf="!fotos.length">Nenhuma foto.</div>
